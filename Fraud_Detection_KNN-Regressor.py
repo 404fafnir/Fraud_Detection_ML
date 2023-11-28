@@ -11,11 +11,9 @@ data = pd.read_csv('Dataset.csv')
 
 label_encoder = LabelEncoder()
 
-# Appliquer l'encodage aux colonnes catégorielles
 data['type'] = label_encoder.fit_transform(data['type'])
 data['nameOrig'] = label_encoder.fit_transform(data['nameOrig'])
 data['nameDest'] = label_encoder.fit_transform(data['nameDest'])
-# Charger les données à partir du fichier CSV
 
 X = data.drop('isFraud', axis=1) 
 y = data['isFraud']
