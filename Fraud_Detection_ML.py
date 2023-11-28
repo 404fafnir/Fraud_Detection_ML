@@ -1,38 +1,33 @@
 from sklearn.neighbors import KNeighborsRegressor
 import numpy as np
 import csv
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+import pandas as pd
+from sklearn.metrics import mean_squared_error
 
-# Parse the dataset to have lists to work on
 
-step = []
-type = []
-amount = []
-nameOrig = []
-oldBalanceOrg = []
-newBalanceOrg = []
-nameDest = []
-oldBalanceDest = []
-newBalanceDest = []
-isFraud = []
-isFlaggedFraud = []
+data = pd.read_csv('Dataset.csv')
 
-with open('Dataset.csv', newline='') as CSVdataset:
-    spamreader = csv.reader(CSVdataset, delimiter=',')
-    for row in spamreader:
-        step.append(row[0])
-        type.append(row[1])
-        amount.append(row[2])
-        nameOrig.append(row[3])
-        oldBalanceOrg.append(row[4])
-        newBalanceOrg.append(row[5])
-        nameDest.append(row[6])
-        oldBalanceDest.append(row[7])
-        newBalanceDest.append(row[8])
-        isFraud.append(row[9])
-        isFlaggedFraud.append(row[10])
+label_encoder = LabelEncoder()
+
+# Appliquer l'encodage aux colonnes catégorielles
+data['type'] = label_encoder.fit_transform(data['type'])
+data['nameOrig'] = label_encoder.fit_transform(data['nameOrig'])
+data['nameDest'] = label_encoder.fit_transform(data['nameDest'])
+# Charger les données à partir du fichier CSV
+
+X = data.drop('isFraud', axis=1) 
+y = data['isFraud']
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=12345)
 
 
 neigh = KNeighborsRegressor(n_neighbors=3)
-neigh.fit(step,type, amount, nameOrig, oldBalanceOrg, newBalanceOrg, nameDest, oldBalanceDest, newBalanceDest, isFraud, isFlaggedFraud)
+neigh.fit(X_train, y_train)
 
+predictions = neigh.predict(X_test)
 
+mse = mean_squared_error(y_test, predictions)
+print("Erreur quadratique moyenne du modèle k-NN:", mse)
