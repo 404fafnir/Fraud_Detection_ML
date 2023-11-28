@@ -1,4 +1,4 @@
-# Fraud_Detection_ML
+# Machine Learning Model for Fraud Detection
 
 ## Dataset
 
@@ -9,7 +9,7 @@ https://www.kaggle.com/datasets/ealaxi/paysim1
 
 ## Results
 
-### Fraud_Detection_ML.py
+### Fraud_Detection_KNN-Regressor.py
 MSE = 0.0006934599618116788 
 
 
