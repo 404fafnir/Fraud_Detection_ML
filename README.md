@@ -12,5 +12,7 @@ https://www.kaggle.com/datasets/ealaxi/paysim1
 ### Fraud_Detection_KNN-Regressor.py
  Mean Squared Error (MSE) = 0.0006934599618116788 
 
+### Fraud_Detection_Neural-Network.py
+ Accuracy = 0.999522209404302
 
 
