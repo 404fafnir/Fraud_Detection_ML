@@ -34,3 +34,5 @@ predictions = neigh.predict(X_test)
 #Calcul du taux d'erreur MSE
 mse = mean_squared_error(y_test, predictions)
 print("Erreur quadratique moyenne du modèle k-NN:", mse)
+
+print("Précision :", 1-mse)
