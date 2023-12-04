@@ -1,12 +1,10 @@
 # Importation des modules necessaires
-from sklearn import tree
-import numpy as np
+from sklearn.neural_network import MLPRegressor
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import mean_squared_error
 
-#Conversion du Dataset en DataFrame
 data = pd.read_csv('Dataset.csv')
 
 #Initialisationd de la fonction LabelEncoder()
@@ -22,17 +20,19 @@ X = data.drop('isFraud', axis=1)
 y = data['isFraud']
 
 #Division du Dataset en un ensemble de d'entrainement et un ensemble de test
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=12345)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
+#Reseau de Neurone
+model = MLPRegressor(hidden_layer_sizes=(100,), max_iter=500, random_state=42)
 
-Tree = tree.DecisionTreeClassifier()
-Tree.fit(X_train, y_train)
+#Entrainement du réseau de Neurone
+model.fit(X_train, y_train)
 
 #Test du modèle
-predictions = Tree.predict(X_test)
+predictions = model.predict(X_test)
 
-#Calcul du taux d'erreur MSE
+#Calcul du taux d'erreur
 mse = mean_squared_error(y_test, predictions)
 
-print("Erreur quadratique moyenne du Modèle Decision Tree :", mse)
-print("Précision :", 1-mse)
+print("Le Meqn Square Error est : ", mse)
+print("Accuracy : ", 1-mse)

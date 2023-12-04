@@ -19,14 +19,18 @@ https://www.kaggle.com/datasets/ealaxi/paysim1
  Accuracy = 0.9989832271890201
  alpha = 0.5
 
-### Fraud_Detection_Ridge-Regressor.py
+### Fraud_Detection_Lasso-Regressor.py
  Accuracy = 0.9989736697160757
  alpha = 0.5
 
 ### Fraud_Detection_Decision-Tree.py
- Accuracy = Précision : 0.9996911649603465
+ Accuracy = 0.9996911649603465
 
+### Fraud_Detection_Random-Forest.py
+ Accuracy = 0.9997068817562577
 
+### Fraud_Detection_Gradient-Boosting_Regression.py
+ Accuracy = 
 
 
 
