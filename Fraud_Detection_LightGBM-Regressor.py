@@ -1,10 +1,10 @@
 # Importation des modules necessaires
-import xgboost as xgb
+import lightgbm as lgb
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 import pandas as pd
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import mean_squared_error
 
 #Conversion du Dataset en DataFrame
 data = pd.read_csv('Dataset.csv')
@@ -25,15 +25,15 @@ y = data['isFraud']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=12345)
 
 
-Tree =  xgb.XGBClassifier(objective="binary:logistic", random_state=42)
+Tree =  lgb.LGBMRegressor()
 Tree.fit(X_train, y_train)
 
 #Test du modèle
 predictions = Tree.predict(X_test)
 
 #Calcul du taux d'erreur MSE
-accuracy = accuracy = accuracy_score(y_test, predictions)
+mse = mean_squared_error(y_test, predictions)
 
-print("Accuracy du Modèle XGBoost :", accuracy)
-print("Précision :", 1-accuracy)
+print("Erreur quadratique moyenne du Modèle LightGBM Regerssor :", mse)
+print("Précision :", 1-mse)
 

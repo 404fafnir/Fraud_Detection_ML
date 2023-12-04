@@ -33,6 +33,10 @@ https://www.kaggle.com/datasets/ealaxi/paysim1
  Accuracy = 0.9995492653079928
 
 ### Fraud_Detection_XGBoost.py
- Accuracy = 
+ Accuracy = 0.0002145342641867165
+
+### Fraud_Detection_LightGBM-Regressor.py
+ Accuracy = 0.9997734592500174
+
 
 
