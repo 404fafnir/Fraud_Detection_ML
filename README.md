@@ -30,7 +30,9 @@ https://www.kaggle.com/datasets/ealaxi/paysim1
  Accuracy = 0.9997068817562577
 
 ### Fraud_Detection_Gradient-Boosting_Regression.py
- Accuracy = 
+ Accuracy = 0.9995492653079928
 
+### Fraud_Detection_XGBoost.py
+ Accuracy = 
 
 
