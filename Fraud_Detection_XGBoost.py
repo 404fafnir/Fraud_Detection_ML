@@ -35,5 +35,4 @@ predictions = Tree.predict(X_test)
 accuracy = accuracy = accuracy_score(y_test, predictions)
 
 print("Accuracy du Modèle XGBoost :", accuracy)
-print("Précision :", 1-accuracy)
 
