@@ -38,5 +38,9 @@ https://www.kaggle.com/datasets/ealaxi/paysim1
 ### Fraud_Detection_LightGBM-Regressor.py
  Accuracy = 0.9997734592500174
 
+### Fraud_Detection_Hierarchical-Clustering.py
+ Accuracy = NOT_WORKING/NOT_TESTED
 
+### Fraud_Detection_Gaussian-Mixture.py
+ Accuracy = TODO 
 
