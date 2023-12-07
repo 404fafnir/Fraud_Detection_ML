@@ -44,3 +44,6 @@ https://www.kaggle.com/datasets/ealaxi/paysim1
 ### Fraud_Detection_Gaussian-Mixture.py
  Accuracy = TODO 
 
+### Fraud_Detection_A-Priori.py
+ Not suitable for the Fraud Analysis
+
